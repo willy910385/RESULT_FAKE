@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discord | 登入</title>
   <link rel="stylesheet" href="perform.css">
+  <script src="condition.js"></script>
 </head>
 <body>
 <div class="login-container">
@@ -48,33 +49,5 @@
     </div>
   </div>
 </div>
-
-<script>
-  function validateForm() {
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    const emailAlert = document.getElementById('email-alert');
-    const passwordAlert = document.getElementById('password-alert');
-
-    let isValid = true;
-
-    emailAlert.style.display = 'none';
-    passwordAlert.style.display = 'none';
-
-    if (!email.value) {
-      emailAlert.style.display = 'block';
-      isValid = false;
-    }
-
-    if (password.value.length < 6) {
-      passwordAlert.style.display = 'block';
-      isValid = false;
-    }
-
-    if (isValid) {
-      alert('你被詐騙了!!');
-    }
-  }
-</script>
 </body>
 </html>
