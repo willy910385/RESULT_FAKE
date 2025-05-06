@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord | 登入</title>
+  <link rel="stylesheet" href="perform.css">
+</head>
+<body>
+<div class="login-container">
+  <div class="content">
+    <div class="form-section">
+      <div class="form-header">
+        <h2>歡迎回來！</h2>
+        <p>我們很高興又見到您了!</p>
+      </div>
+
+      <form id="login-form" onsubmit="event.preventDefault(); validateForm();">
+        <div class="form-group">
+          <label for="email">電子郵件或電話號碼<span style="color: #ed4245;">*</span></label>
+          <input id="email" type="text" required>
+          <div id="email-alert" class="alert">請輸入有效的電子郵件或電話號碼</div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">密碼<span style="color: #ed4245;">*</span></label>
+          <input id="password" type="password" required>
+          <div id="password-alert" class="alert">密碼長度必須至少為6個字符</div>
+        </div>
+
+        <div class="links">
+          <a href="#" onclick="alert('網路忙碌中，請稍後在試')">忘記密碼?</a>
+        </div>
+
+        <button type="submit" class="btn">登入</button>
+
+        <div class="links" style="margin-top: 12px;">
+          <span style="color: #b5bac1; font-size: 14px;">需要一個帳號？</span>
+          <a href="#" onclick="alert('網路忙碌中，請稍後在試')">註冊</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="qr-section">
+      <img src="RICK.jpg" alt="QR Code" class="qr-code">
+      <p>使用QR Code登入</p>
+      <span>使用Discord行動應用程式掃描此QR Code以登入</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  function validateForm() {
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const emailAlert = document.getElementById('email-alert');
+    const passwordAlert = document.getElementById('password-alert');
+
+    let isValid = true;
+
+    emailAlert.style.display = 'none';
+    passwordAlert.style.display = 'none';
+
+    if (!email.value) {
+      emailAlert.style.display = 'block';
+      isValid = false;
+    }
+
+    if (password.value.length < 6) {
+      passwordAlert.style.display = 'block';
+      isValid = false;
+    }
+
+    if (isValid) {
+      alert('你被詐騙了!!');
+    }
+  }
+</script>
+</body>
+</html>
